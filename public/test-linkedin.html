@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Share Test - XperThrivr</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="XperThrivr - Empowering Individuals">
+    <meta property="og:description" content="Get valuable insights and career advice from experienced professionals. Book a session and grow together!">
+    <meta property="og:image" content="/api/og">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="/share">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="XperThrivr">
+    
+    <!-- LinkedIn Specific Meta Tags -->
+    <meta property="linkedin:image" content="/api/og">
+    <meta property="linkedin:image:width" content="1200">
+    <meta property="linkedin:image:height" content="630">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="XperThrivr - Empowering Individuals">
+    <meta name="twitter:description" content="Get valuable insights and career advice from experienced professionals. Book a session and grow together!">
+    <meta name="twitter:image" content="/api/og">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .warning-section {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .meta-tag {
+            background: #e8f4fd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .image-preview {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        .linkedin-button {
+            background: #0077b5;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .linkedin-button:hover {
+            background: #005885;
+        }
+        .ngrok-button {
+            background: #28a745;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .ngrok-button:hover {
+            background: #218838;
+        }
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>LinkedIn Share Test Page</h1>
+    
+    <div class="warning-section">
+        <h2>⚠️ IMPORTANT: Localhost Limitation</h2>
+        <p><strong>LinkedIn cannot access localhost URLs!</strong> This is why you're seeing "Cannot display preview" in the LinkedIn share dialog.</p>
+        <p>You must deploy your app to a public URL for LinkedIn to properly scrape the meta tags and display the image preview.</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Quick Solutions</h2>
+        
+        <h3>Option 1: Use ngrok (Immediate Testing)</h3>
+        <div class="code-block">
+            # Install ngrok globally<br>
+            npm install -g ngrok<br><br>
+            
+            # Start your Next.js app<br>
+            npm run dev<br><br>
+            
+            # In another terminal, expose localhost:3000<br>
+            ngrok http 3000
+        </div>
+        <p>This will give you a public URL like <code>https://abc123.ngrok.io</code> that LinkedIn can access.</p>
+        
+        <h3>Option 2: Deploy to Vercel (Recommended)</h3>
+        <div class="code-block">
+            # Install Vercel CLI<br>
+            npm install -g vercel<br><br>
+            
+            # Deploy your app<br>
+            vercel
+        </div>
+        <p>This will give you a public URL like <code>https://your-app.vercel.app</code></p>
+        
+        <h3>Option 3: Netlify Drop</h3>
+        <p>Go to <a href="https://netlify.com/drop" target="_blank">netlify.com/drop</a> and drag your project folder for instant deployment.</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test Image</h2>
+        <img src="/api/og" alt="XperThrivr Profile" class="image-preview">
+        <p>This is the image that should appear when shared on LinkedIn.</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>LinkedIn Share Testing</h2>
+        
+        <h3>Current Localhost Test (Will NOT work)</h3>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=http://localhost:3000/share" 
+           class="linkedin-button" target="_blank">
+            Test with localhost (Will fail)
+        </a>
+        <p>This will show "Cannot display preview" because LinkedIn can't access localhost.</p>
+        
+        <h3>After Deploying to Public URL</h3>
+        <p>Once you have a public URL (from ngrok, Vercel, or Netlify), replace <code>localhost:3000</code> with your public URL in the LinkedIn share component.</p>
+        
+        <div class="code-block">
+            // In LinkedInShareFeature.tsx<br>
+            const sharePageUrl = "https://your-public-url.com/share";
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Meta Tags Verification</h2>
+        <p>These are the meta tags that LinkedIn will read (once it can access your public URL):</p>
+        
+        <div class="meta-tag">
+            &lt;meta property="og:title" content="XperThrivr - Empowering Individuals"&gt;
+        </div>
+        
+        <div class="meta-tag">
+            &lt;meta property="og:description" content="Get valuable insights and career advice from experienced professionals. Book a session and grow together!"&gt;
+        </div>
+        
+        <div class="meta-tag">
+            &lt;meta property="og:image" content="/api/og"&gt;
+        </div>
+        
+        <div class="meta-tag">
+            &lt;meta property="og:image:width" content="1200"&gt;
+        </div>
+        
+        <div class="meta-tag">
+            &lt;meta property="og:image:height" content="630"&gt;
+        </div>
+        
+        <div class="meta-tag">
+            &lt;meta property="og:image:type" content="image/png"&gt;
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Testing Steps</h2>
+        <ol>
+            <li><strong>Deploy to a public URL</strong> using one of the methods above</li>
+            <li><strong>Update your share component</strong> with the public URL</li>
+            <li><strong>Test the share page</strong> at your public URL</li>
+            <li><strong>Use LinkedIn Post Inspector</strong> to verify meta tags</li>
+            <li><strong>Test sharing</strong> - image should now appear in full size!</li>
+        </ol>
+    </div>
+    
+    <div class="test-section">
+        <h2>LinkedIn Post Inspector</h2>
+        <p>After deploying to a public URL, use LinkedIn's Post Inspector to debug:</p>
+        <a href="https://www.linkedin.com/post-inspector/" target="_blank" class="linkedin-button">
+            LinkedIn Post Inspector
+        </a>
+        <p>Enter your public URL to see exactly what LinkedIn sees and verify the image preview.</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Expected Result</h2>
+        <p>Once deployed to a public URL, LinkedIn should show:</p>
+        <ul>
+            <li>✅ Full-size image preview (1200x630)</li>
+            <li>✅ Title: "XperThrivr - Empowering Individuals"</li>
+            <li>✅ Description with your content</li>
+            <li>✅ Professional link preview</li>
+        </ul>
+    </div>
+</body>
+</html>
