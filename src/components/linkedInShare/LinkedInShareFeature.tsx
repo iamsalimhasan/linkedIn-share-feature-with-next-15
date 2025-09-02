@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import { LinkedinShareButton, LinkedinIcon } from "next-share";
+import { LinkedinShareButton } from "next-share";
+import { useState } from "react";
 
 const LinkedInShareFeature = () => {
   const [isSharing, setIsSharing] = useState(false);
@@ -19,12 +19,15 @@ const LinkedInShareFeature = () => {
 
   // Use absolute URL for LinkedIn sharing
   // Replace this with your actual public URL when deployed
-  const sharePageUrl = typeof window !== 'undefined' 
-    ? `${window.location.origin}/share`
-    : '/share';
+  const sharePageUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}/share`
+      : "/share";
 
   // Alternative: Use the direct LinkedIn share URL
-  const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(sharePageUrl)}`;
+  const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+    sharePageUrl
+  )}`;
 
   return (
     <div className="w-full h-full space-y-4">
@@ -62,10 +65,15 @@ const LinkedInShareFeature = () => {
       {/* Debug Information */}
       <div className="bg-gray-100 p-4 rounded-lg text-sm">
         <p className="font-semibold mb-2">Debug Info:</p>
-        <p><strong>Share URL:</strong> {sharePageUrl}</p>
-        <p><strong>LinkedIn Share URL:</strong> {linkedInShareUrl}</p>
+        <p>
+          <strong>Share URL:</strong> {sharePageUrl}
+        </p>
+        <p>
+          <strong>LinkedIn Share URL:</strong> {linkedInShareUrl}
+        </p>
         <p className="text-red-600 mt-2">
-          ⚠️ Note: LinkedIn cannot access localhost URLs. Deploy to a public URL for testing.
+          ⚠️ Note: LinkedIn cannot access localhost URLs. Deploy to a public URL
+          for testing.
         </p>
       </div>
     </div>

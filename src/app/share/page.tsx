@@ -70,8 +70,8 @@ export default function SharePage() {
                   Excited to be on XperThrivr! 🚀
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  My page is now LIVE! 🎉 Whether you want to obtain valuable insights, 
-                  or career advice, I'm here to help. Let's grow together! 💡✨
+                  My page is now LIVE!  Whether you want to obtain valuable insights, 
+                  or career advice, I&apos;m here to help. Let&apos;s grow together
                 </p>
               </div>
               
