@@ -14,7 +14,7 @@ const LinkedInShareFeature = () => {
     imageUrl:
       "https://api.xperthrivr.com/uploads/profile_image_41_1756836591.png",
     content:
-      "Excited to be on XperThrivr! 🚀 My page is now LIVE! 🎉 \n\nWhether you want to obtain valuable insights, or career advice, I'm here to help. Let's grow together! 💡✨  \n\n#XperThrivr #EmpoweringIndividuals \n\nBook a session with me! ➡️ [Link to your XperThrivr profile] ",
+      "Excited to be on XperThrivr!",
   };
 
   // Use absolute URL for LinkedIn sharing
@@ -50,7 +50,7 @@ const LinkedInShareFeature = () => {
       {/* Alternative Direct Share Button */}
       <div className="text-center">
         <p className="text-sm text-gray-600 mb-2">
-          If the above doesn't work, try this direct link:
+          If the above doesn&apos;t work, try this direct link:
         </p>
         <a
           href={linkedInShareUrl}
